@@ -14,7 +14,7 @@ jobs:
 
       - name: Build, tag, and push image to Github Container Registry
         run: |
-          echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u vitat --password-stdin
+          echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u docker --password-stdin
           docker build -t flask-api .
           docker tag flask-api ghcr.io/andre177/flask-api
           docker push ghcr.io/andre177/flask-api
