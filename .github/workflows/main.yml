@@ -1,11 +1,11 @@
-name: Build, Push & Deploy
+name: Build and push
 on:
   push:	
     branches:
       - main
   
 jobs:
-  buildAndDeploy:
+  build-and-push:
     name: Build image and push to GitHub Packages registry
     runs-on: ubuntu-latest
     steps:
