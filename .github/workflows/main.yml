@@ -32,5 +32,5 @@ jobs:
       - name: Testing API
         run: |
           pip3 install flask
-          python3 api.py
+          python3 api.py &
           curl -XGET http://localhost:5000/ping
