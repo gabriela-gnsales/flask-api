@@ -1,5 +1,7 @@
 name: Build and push
+
 on:
+  workflow_dispatch:
   push:	
     branches:
       - main
@@ -18,3 +20,14 @@ jobs:
           docker build -t flask-api .
           docker tag flask-api ghcr.io/andre177/flask-api
           docker push ghcr.io/andre177/flask-api
+          
+  test-api:
+    name: Run API and run a GET request
+    runs-on: self-hosted
+    needs: build-and-push
+    steps:
+      - name: Testing API
+        run: |
+          pip3 install flask
+          python3 api.py
+          curl -XGET http://localhost:5000/ping
