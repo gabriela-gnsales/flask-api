@@ -1,0 +1,18 @@
+name: Build, push and list
+
+on:
+  workflow_dispatch:
+  push:	
+    branches:
+      - main
+
+jobs:
+  list-files-repository:
+    runs-on: self-hosted
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      
+      - name: List files of the repository every commit in main branch
+        run: |
+          ls ${{ github.workspace }}
