@@ -1,4 +1,4 @@
-name: Build, push and list
+name: List files
 
 on:
   workflow_dispatch:
